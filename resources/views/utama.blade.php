@@ -26,7 +26,9 @@
 
 <body>
 	<header id="header"><!--header-->
-		
+		<?php
+			$id = Session::get('id_user');
+		?>
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
@@ -41,7 +43,12 @@
 							<ul class="nav navbar-nav">
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<?php  if($id == null){?>
+									<li><a href="/Login"><i class="fa fa-lock"></i> Login</a></li>
+								<?php }else{?>
+									<li><a href="/Keluar"><i class="fa fa-lock"></i> Logout</a></li>
+
+								<?php }?>
 							</ul>
 						</div>
 					</div>
@@ -166,21 +173,21 @@
 										<img src="/data_file/{{ $brg->gambar }}" alt="" />
 										<h2>Rp. {{ $brg->harga }}</h2>
 										<p>{{ $brg->nama_produk }}</p>
+									<?php  if($id != null){?>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+									<?php }else{}?>
 									</div>
 									<div class="product-overlay">
 										<div class="overlay-content">
 										<h2>Rp. {{ $brg->harga }}</h2>
 										<p>{{ $brg->nama_produk }}</p>
+									<?php  if($id != null){?>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
+									<?php }else{}?>										</div>
 									</div>
 								</div>
 								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
+
 								</div>
 							</div>
 						</div>

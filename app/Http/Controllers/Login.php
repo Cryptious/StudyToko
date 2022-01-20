@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class Login extends Controller
 {
@@ -25,7 +26,7 @@ class Login extends Controller
     public function Masuk(Request $request){
         $user = DB::table('tbl_user')->where('email',$request->email)->first();
         if($user->password == $request->password){
-            $request->session()->put('id',$user->id);
+            Session::put('id_user',$user->id);
             echo 'Data Disimpan dengan session id ='. $request->session()->get('id');
             return redirect('/');
             
@@ -34,5 +35,9 @@ class Login extends Controller
             return redirect('/Login');
 
         }
+    }
+    public function Keluar(){
+        Session::forget('id_user');
+        return redirect('/');
     }
 }
