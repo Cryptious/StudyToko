@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\M_Barang;
+use Illuminate\Support\Facades\DB;
 
 class Utama extends Controller
 {
     public function index(){
-        return view('utama');
+        $barang = DB::table('tbl_barang')->get();
+        return view('utama',['barang' => $barang]);
     }
 
     public function store(Request $request){
