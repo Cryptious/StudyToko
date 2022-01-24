@@ -47,7 +47,6 @@
 									<li><a href="/Login"><i class="fa fa-lock"></i> Login</a></li>
 								<?php }else{?>
 									<li><a href="/Keluar"><i class="fa fa-lock"></i> Logout</a></li>
-
 								<?php }?>
 							</ul>
 						</div>
@@ -174,7 +173,7 @@
 										<h2>Rp. {{ $brg->harga }}</h2>
 										<p>{{ $brg->nama_produk }}</p>
 									<?php  if($id != null){?>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										<button data-toggle="modal" data-target="#myModal"  data-id="{{ $brg->id }}" class="btn btn-default add-to-cart jumlah"><i class="fa fa-shopping-cart"></i>Add to cart</button>
 									<?php }else{}?>
 									</div>
 									<div class="product-overlay">
@@ -182,8 +181,9 @@
 										<h2>Rp. {{ $brg->harga }}</h2>
 										<p>{{ $brg->nama_produk }}</p>
 									<?php  if($id != null){?>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									<?php }else{}?>										</div>
+										<button data-toggle="modal" data-target="#myModal"  data-id="{{ $brg->id }}" class="btn btn-default add-to-cart jumlah"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+									<?php }else{}?>										
+									</div>
 									</div>
 								</div>
 								<div class="choose">
@@ -212,7 +212,38 @@
 	</footer><!--/Footer-->
 	
 
-  
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+	  <form action="/AddCart" method="post">
+	  <!-- Modal content-->
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+		  <h4 class="modal-title">Masukan Jumlah</h4>
+		</div>
+		<div class="modal-body">
+		  <input type="hidden" id="id_barang" class="id_barang" name="id_barang" value="3487">
+		  <div class="form-group">
+			<label for="exampleInputEmail1">Jumlah Beli</label>
+			<input type="number" min="1"class="form-control " id="jumlah" name="jumlah" placeholder="Jumlah Beli">
+		  </div>
+		</div>
+		<div class="modal-footer">
+		  <button type="submit" class="btn btn-default">Beli</button>
+		  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+	  </div>
+	</form>
+	</div>
+</div>
+	
+
+	<script type="text/javascript">
+		$(".jumlah").click(function() {
+		$(".id_barang").val($(this).attr('data-id'));
+			});
+	</script>
     <script src="/BahanStudy/js/jquery.js"></script>
 	<script src="/BahanStudy/js/bootstrap.min.js"></script>
 	<script src="/BahanStudy/js/jquery.scrollUp.min.js"></script>

@@ -16,6 +16,7 @@ class Keranjang extends Migration
             $table->increments('id_keranjang');
             $table->string('id_user');
             $table->string('id_barang');
+            $table->integer('jumlah');
         });
     }
 
