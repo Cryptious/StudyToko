@@ -42,7 +42,7 @@
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="/Keranjang"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								<?php  if($id == null){?>
 									<li><a href="/Login"><i class="fa fa-lock"></i> Login</a></li>
 								<?php }else{?>
@@ -170,15 +170,15 @@
 								<div class="single-products">
 									<div class="productinfo text-center">
 										<img src="/data_file/{{ $brg->gambar }}" alt="" />
-										<h2>Rp. {{ $brg->harga }}</h2>
-										<p>{{ $brg->nama_produk }}</p>
+										<h2>Rp. {{ number_format($brg->harga) }}</h2>
+										<p>{{ $brg->nama_produk }} </p>
 									<?php  if($id != null){?>
 										<button data-toggle="modal" data-target="#myModal"  data-id="{{ $brg->id }}" class="btn btn-default add-to-cart jumlah"><i class="fa fa-shopping-cart"></i>Add to cart</button>
 									<?php }else{}?>
 									</div>
 									<div class="product-overlay">
 										<div class="overlay-content">
-										<h2>Rp. {{ $brg->harga }}</h2>
+										<h2>Rp. {{ number_format($brg->harga) }}</h2>
 										<p>{{ $brg->nama_produk }}</p>
 									<?php  if($id != null){?>
 										<button data-toggle="modal" data-target="#myModal"  data-id="{{ $brg->id }}" class="btn btn-default add-to-cart jumlah"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -223,7 +223,7 @@
 		  <h4 class="modal-title">Masukan Jumlah</h4>
 		</div>
 		<div class="modal-body">
-		  <input type="hidden" id="id_barang" class="id_barang" name="id_barang" value="3487">
+		  <input type="hidden" id="id_barang" class="id_barang" name="id_barang" value="">
 		  <div class="form-group">
 			<label for="exampleInputEmail1">Jumlah Beli</label>
 			<input type="number" min="1"class="form-control " id="jumlah" name="jumlah" placeholder="Jumlah Beli">
@@ -238,17 +238,16 @@
 	</div>
 </div>
 	
-
-	<script type="text/javascript">
-		$(".jumlah").click(function() {
-		$(".id_barang").val($(this).attr('data-id'));
-			});
-	</script>
     <script src="/BahanStudy/js/jquery.js"></script>
 	<script src="/BahanStudy/js/bootstrap.min.js"></script>
 	<script src="/BahanStudy/js/jquery.scrollUp.min.js"></script>
 	<script src="/BahanStudy/js/price-range.js"></script>
     <script src="/BahanStudy/js/jquery.prettyPhoto.js"></script>
     <script src="/BahanStudy/js/main.js"></script>
+	<script type="text/javascript">
+		$(".jumlah").click(function() {
+		$(".id_barang").val($(this).attr('data-id'));
+			});
+	</script>
 </body>
 </html>

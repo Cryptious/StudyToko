@@ -18,3 +18,5 @@ Route::post('/Daftar','Login@Register');
 Route::post('/Masuk','Login@Masuk');
 Route::get('/Keluar','Login@Keluar');
 Route::post('/AddCart','Order@Order');
+Route::get('/Keranjang','Order@Keranjang');
+
