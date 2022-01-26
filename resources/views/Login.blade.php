@@ -39,10 +39,13 @@
 					<div class="col-md-8 clearfix">
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-							</ul>
+								<li><a href="/Checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="/Keranjang"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<?php  if($id == null){?>
+									<li><a href="/Login"><i class="fa fa-lock"></i> Login</a></li>
+								<?php }else{?>
+									<li><a href="/Keluar"><i class="fa fa-lock"></i> Logout</a></li>
+								<?php }?>							</ul>
 						</div>
 					</div>
 				</div>
@@ -63,9 +66,9 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Home</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
-								<li><a href="konfirmasi.html">Confirm</a></li>
+								<li><a href="/" class="active">Home</a></li>
+								<li><a href="#">Contact</a></li>
+								<li><a href="/Confirm">Confirm</a></li>
 							</ul>
 						</div>
 					</div>

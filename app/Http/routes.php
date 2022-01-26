@@ -21,6 +21,9 @@ Route::post('/AddCart','Order@Order');
 Route::get('/Keranjang','Order@Keranjang');
 Route::get('/Checkout','Order@Checkout');
 Route::get('/Checkout_List','Order@Checkout_List');
+Route::get('/Confirm','Order@Confirm');
+Route::post('/Konfirm','Order@Confirm_Simpan');
+
 
 
 
