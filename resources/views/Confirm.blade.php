@@ -27,7 +27,9 @@
 
 <body>
    <header id="header"><!--header-->
-
+        <?php
+        $id = Session::get('id_user');
+?>
            <div class="header-middle"><!--header-middle-->
                    <div class="container">
                            <div class="row">
